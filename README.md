@@ -1,11 +1,12 @@
 # socket.io client for Unity
-====================
 
 Socket.IO Client Library for Unity (mono / .NET 2.0)
 
+![unity-nodejs](Demo/unity-nodejs.jpg)
+
 This is the Socket.IO Client Library for C#, which is ported from the [JavaScript client](https://github.com/Automattic/socket.io-client) version [1.1.0](https://github.com/socketio/socket.io-client/releases/tag/1.1.0).
 
-[SocketIoClientDotNet by Quobject](https://github.com/Quobject/SocketIoClientDotNet) is a very good project, but it does not support Unity. 
+[SocketIoClientDotNet](https://github.com/Quobject/SocketIoClientDotNet) by Quobject is a very good project, but it does not support Unity. 
 
 So I spent a few overnights to port it to mono/.NET 2.0.
 
