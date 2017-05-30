@@ -50,6 +50,16 @@ Mono, .NET 2.0
 * [Example for Socket.IO](Demo/TestSocketIOScript.cs)
 * [Example for WebSocket](Demo/TestWebSocketScript.cs)
 
+## Comparison
+
+Project | Author | Popularity | Status
+---|---|---|---
+[socket.io-unity](https://github.com/floatinghotpot/socket.io-unity) | floatinghotpot | new | ACTIVE, support .NET 2.0 and Unity
+[SocketIoClientDotNet](https://github.com/Quobject/SocketIoClientDotNet) | Quobject | 323 stars | ACTIVE, support .NET 3.5 and higher, but not compatible with .NET 2.0 and Unity
+[UnitySocketIO](https://github.com/NetEase/UnitySocketIO) | NetEase | 547 stars | no longer maintained, not compatible with socket.io 1.x and later
+[unity-socket.io-DEPRECATED](https://github.com/fpanettieri/unity-socket.io-DEPRECATED) | fpanettieri | 189 stars | no longer maintained
+[UnitySocketIO-WebSocketSharp](https://github.com/kaistseo/UnitySocketIO-WebSocketSharp) | kaistseo | 108 stars | no longer maintained
+
 ## Credit
 
 Thanks to the authors of following projects:
