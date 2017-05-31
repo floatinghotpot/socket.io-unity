@@ -26,7 +26,7 @@ socket.io client for Unity has a similar api to those of the [JavaScript client]
 ```cs
 using Quobject.SocketIoClientDotNet.Client;
 
-var socket = IO.Socket("http://localhost");
+var socket = IO.Socket("http://localhost:3000");
 socket.On(Socket.EVENT_CONNECT, () =>
 {
   socket.Emit("hi");
@@ -46,9 +46,10 @@ This library supports all of the features the JS client does, including events, 
 ## Framework Versions
 Mono, .NET 2.0
 
-## Examples
-* [Example for Socket.IO](Demo/TestSocketIOScript.cs)
-* [Example for WebSocket](Demo/TestWebSocketScript.cs)
+## Demo
+* [Example code for Socket.IO](Demo/TestSocketIOScript.cs)
+
+Unzip the test-server.zip, it's a nodejs app for testing purpose.
 
 ## Comparison
 

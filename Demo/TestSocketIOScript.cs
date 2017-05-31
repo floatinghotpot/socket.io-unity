@@ -1,9 +1,20 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Quobject.SocketIoClientDotNet.Client;
+using Newtonsoft.Json;
+
+public class ChatData {
+	public string id;
+	public string msg;
+};
 
 public class TestSocketIOScript : MonoBehaviour {
+	public InputField inputMsg = null;
+	public Button btnSend = null;
+	public Text textChatLog = null;
+
 	protected Socket socket = null;
 
 	void Destroy() {
@@ -13,6 +24,8 @@ public class TestSocketIOScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DoOpen ();
+
+		btnSend.onClick.AddListener(() => SendChat(inputMsg.text));
 	}
 	
 	// Update is called once per frame
@@ -22,13 +35,21 @@ public class TestSocketIOScript : MonoBehaviour {
 
 	void DoOpen() {
 		if (socket == null) {
-			socket = IO.Socket ("http://localhost:7000");
-			socket.On (Socket.EVENT_CONNECT, ws_OnConnected);
-			socket.On ("rpc_ret", (data) => {
-				Debug.Log(data);
+			socket = IO.Socket ("http://localhost:3000");
+			socket.On (Socket.EVENT_CONNECT, () => {
+				Debug.Log ("Socket.IO connected");
 			});
-			socket.On ("notify", (data) => {
-				Debug.Log(data);
+			socket.On ("chat", (data) => {
+				//Debug.Log(data);
+
+				string str = data.ToString();
+				//Debug.Log(str);
+
+				ChatData chat = JsonConvert.DeserializeObject<ChatData> (str);
+				string strChatLog = "user#" + chat.id + ": " + chat.msg;
+				Debug.Log (strChatLog);
+
+				// TODO: show it in UI with main thread, UI not allow access from back thread
 			});
 		}
 	}
@@ -40,30 +61,9 @@ public class TestSocketIOScript : MonoBehaviour {
 		}
 	}
 
-	void DoLogin() {
+	void SendChat(string str) {
 		if (socket != null) {
-			socket.Emit ("rpc", "login");
+			socket.Emit ("chat", str);
 		}
-	}
-
-	void ws_OnConnected() {
-		Debug.Log ("Socket.IO connected");
-	}
-
-	void OnGUI() {
-		GUI.Box (new Rect (320, 20, 200, 220), "SocketIO");
-
-		if (GUI.Button (new Rect (340, 60, 160, 40), "Open")) {
-			DoOpen ();
-		}
-
-		if (GUI.Button (new Rect (340, 120, 160, 40), "login")) {
-			DoLogin ();
-		}
-
-		if (GUI.Button (new Rect (340, 180, 160, 40), "Close")) {
-			DoClose ();
-		}
-
 	}
 }
