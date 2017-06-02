@@ -53,21 +53,18 @@ public class SocketIOScript : MonoBehaviour {
 		if (socket == null) {
 			socket = IO.Socket (serverURL);
 			socket.On (Socket.EVENT_CONNECT, () => {
-				//Debug.Log ("Socket.IO connected");
 				lock(chatLog) {
+					// Access to Unity UI is not allowed in a background thread, so let's put into a shared variable
 					chatLog.Add("Socket.IO connected.");
 				}
 			});
 			socket.On ("chat", (data) => {
-				//Debug.Log(data);
-
 				string str = data.ToString();
-				//Debug.Log(str);
 
 				ChatData chat = JsonConvert.DeserializeObject<ChatData> (str);
 				string strChatLog = "user#" + chat.id + ": " + chat.msg;
-				//Debug.Log (strChatLog);
 
+				// Access to Unity UI is not allowed in a background thread, so let's put into a shared variable
 				lock(chatLog) {
 					chatLog.Add(strChatLog);
 				}
