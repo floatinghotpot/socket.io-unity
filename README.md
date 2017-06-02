@@ -47,7 +47,7 @@ This library supports all of the features the JS client does, including events, 
 Mono, .NET 2.0
 
 ## Demo
-* [Example code for Socket.IO](Demo/TestSocketIOScript.cs)
+* [Example code for Socket.IO](Demo/SocketIOScript.cs)
 
 Unzip the test-server.zip, it's a nodejs app for testing purpose.
 
