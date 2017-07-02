@@ -20,6 +20,8 @@ Or, only download the following files in Lib and put to Unity project:
 * SocketIoClientDotNet.dll
 * Newtonsoft.Json.dll
 
+It's available on [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/92068) for $10, but you can also download it for FREE here.
+
 ## Usage
 socket.io client for Unity has a similar api to those of the [JavaScript client](https://github.com/Automattic/socket.io-client).
 
