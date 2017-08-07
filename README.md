@@ -22,6 +22,8 @@ Or, only download the following files in Lib and put to Unity project:
 
 It's available on [Unity Asset Store](https://www.assetstore.unity3d.com/en/#!/content/92068) for $10, but you can also download it for FREE here.
 
+If you are interested to dig into the source code, welcome to fork the [SocketIoClientDotNet for .NET 2.0](https://github.com/floatinghotpot/SocketIoClientDotNet/tree/net20).
+
 ## Usage
 socket.io client for Unity has a similar api to those of the [JavaScript client](https://github.com/Automattic/socket.io-client).
 
