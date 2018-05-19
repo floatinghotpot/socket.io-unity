@@ -13,7 +13,7 @@ Now game developers can:
 
 ## Installation
 
-Downlaod socket.io.unitypackage and then import into Unity.
+Download socket.io.unitypackage and then import into Unity.
 
 Or, only download the following files in Lib and put to Unity project:
 * WebSocket4Net.dll
